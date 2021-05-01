@@ -9,11 +9,11 @@ function reverseString(s) {
         result.push(sArray[i]);
     }
 
-    return result.join("");
+    return result.join("").toLowerCase() === sArray.join("").toLowerCase();
 }
 
 function main () {
-    let data = ["A man, a plan, a canal: Panama."]
+    let data = ["level", "algorithm","A man, a plan, a canal: Panama."]
 
     for(var i = 0; i < data.length; i++) {
         console.log(reverseString(data[i]));
