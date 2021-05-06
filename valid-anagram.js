@@ -5,22 +5,20 @@ var isAnagram = function(s, t) {
     
     let nMap = new Map();
     
-    for (let i = 0; i <s.length; i++) {
-        if (nMap.has(s[i])) {
-            nMap.set(s[i], nMap.get(s[i])+1);
+    for (let i of s.split("")) {
+       if (nMap.has(i)) {
+            nMap.set(i, nMap.get(i)+1);
         } else {
-            nMap.set(s[i],1)
+            nMap.set(i,1)
         }
     }
     
-    for (let i = 0; i <t.length; i++) {
-        if (nMap.has(t[i])) {
-            nMap.set(t[i], nMap.get(t[i])-1);
+    for (let j of t.split("")) {
+        if (!nMap.has(j) || nMap.get(j) <= 0) {
+            return false;
+        } else {
+            nMap.set(j, nMap.get(j)-1);
         }
-    }
-    
-    for (let i of nMap.values()) {
-        if (i !=0) return false;
     }
     
     return true;
